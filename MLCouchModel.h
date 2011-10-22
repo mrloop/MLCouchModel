@@ -18,7 +18,12 @@ typedef BOOL(^AttachPreRevBlock)();
 
 @interface MLCouchModel : CouchModel
 
+/** Should changes be automatically revisioned
+    Defaults to NO */
 @property BOOL attachPreRev;
-@property (strong) AttachPreRevBlock attachPreRevBlock;
+
+/** Optional Block which is checked before a revison is created
+    If it returns NO then a revison is not saved */
+@property (copy) AttachPreRevBlock attachPreRevBlock;
 
 @end
